@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌱 The Seed — showcase
+# 🌱 The Seed by VZero911 — showcase
 
 **A monster-collecting game in the spirit of *Summoners War*, bigger, on the blockchain, with AI
 agents.** Your identity is a wallet, trades between players go through smart contracts, and every

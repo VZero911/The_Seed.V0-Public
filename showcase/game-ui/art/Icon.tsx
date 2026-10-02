@@ -1,3 +1,4 @@
+/** The game's SVG icon set (one `IconName` per drawing, coloured by the caller). */
 import Svg, { Circle, Path, Rect } from 'react-native-svg'
 
 export type IconName =
