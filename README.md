@@ -1,28 +1,28 @@
 <div align="center">
 
-# 🌱 The Seed — vitrine
+# 🌱 The Seed — showcase
 
-**Un jeu de monstres à collectionner dans l'esprit de *Summoners War*, en plus grand, sur la
-blockchain, avec des agents IA.** Identité par wallet, échanges entre joueurs par contrats,
-actions signées sans frais pour le joueur.
+**A monster-collecting game in the spirit of *Summoners War*, bigger, on the blockchain, with AI
+agents.** Your identity is a wallet, trades between players go through smart contracts, and every
+action is signed for free.
 
-<img src="screenshots/30-chain-3d.png" alt="La chaîne en 3D" width="880" />
+<img src="screenshots/30-chain-3d.png" alt="The chain in 3D" width="880" />
 
 </div>
 
-Ce dépôt est la **vitrine publique** du projet : l'interface, les graphismes, la vue 3D de la
-blockchain et la feuille de route. Le code complet (contrats, serveur, sécurité) reste privé pour
-l'instant ; une version stable publique viendra plus tard.
+This repository is the **public showcase** of the project: the interface, the graphics, the 3D
+view of the blockchain and the roadmap. The full code (contracts, server, security) stays private
+for now; a stable public version will come later. It is updated automatically every 2 hours.
 
-## À voir
+## See
 
 | | |
 |---|---|
-| 🎮 Captures du jeu (invocations, combats, runes, marché…) | [`screenshots/`](screenshots/) |
-| ⛓️ La chaîne en 3D (démo autonome, three.js) | [`showcase/chain-3d/index.html`](showcase/chain-3d/index.html) |
-| 🎨 Design tokens V2 « magie sombre » | [`showcase/sdk/tokens.ts`](showcase/sdk/tokens.ts), [`showcase/design/tokens-v2.html`](showcase/design/tokens-v2.html) |
-| 🧩 Composants d'interface du jeu (React Native) | [`showcase/game-ui/`](showcase/game-ui/) |
-| 🔮 Feuille de route en 10 étapes | [`ROADMAP.md`](ROADMAP.md) |
+| 🎮 Game screenshots (summons, battles, runes, marketplace…) | [`screenshots/`](screenshots/) |
+| ⛓️ The chain in 3D (standalone demo, three.js) | [`showcase/chain-3d/index.html`](showcase/chain-3d/index.html) |
+| 🎨 Design tokens V2, "dark magic" | [`showcase/sdk/tokens.ts`](showcase/sdk/tokens.ts), [`showcase/design/tokens-v2.html`](showcase/design/tokens-v2.html) |
+| 🧩 Game UI components (React Native) | [`showcase/game-ui/`](showcase/game-ui/) |
+| 🔮 The roadmap in 10 steps | [`ROADMAP.md`](ROADMAP.md) |
 
 <p align="center">
   <img src="screenshots/04-summon-reveal.png" width="270" />
@@ -30,32 +30,35 @@ l'instant ; une version stable publique viendra plus tard.
   <img src="screenshots/13-monster.png" width="270" />
 </p>
 
-## 🌍 Dans la vraie vie : pourquoi tokeniser des actifs
+## 🏆 The Seed Top Contributor
 
-The Seed prouve en jeu ce que la blockchain apporte aux actifs réels. Ce n'est **pas pour tout de
-suite** : il faudra un audit et un cadre légal.
+The ranking of the people who build The Seed, by **POC** (Point of Contribution: earned, never
+bought). SYSTEM (the AI agent) and V lead it, rewarded every 2 hours for each commit. Someday,
+someone may catch up.
 
-| Dans le jeu | Dans la vraie vie |
+## 🌍 In real life: why tokenize assets
+
+The game proves what a blockchain brings to real assets. **Not for today**: real value needs
+audits and a legal frame first.
+
+| In the game | In real life |
 |---|---|
-| Un monstre NFT appartient à son wallet, personne ne peut le retirer ni le copier | Propriété vérifiable d'un titre, d'un billet, d'un certificat |
-| La marketplace garde l'actif et le paiement en séquestre | Échange sans intermédiaire de confiance, frais publics |
-| Chaque vente est historisée sur la chaîne | Traçabilité : provenance, authenticité |
-| Les règles sont écrites dans le contrat | Royalties, droits, échéances programmables |
-| Les sondages on-chain, avec le veto de V | Gouvernance vérifiable d'une communauté |
+| A monster NFT belongs to its wallet: nobody can take or copy it | Verifiable ownership of a title, a ticket, a certificate |
+| The marketplace holds the asset and the payment in escrow; 2.5 % of each sale goes to the system's creator (royalties) | Trades without a trusted middleman, public fees and royalties |
+| Every sale is recorded on-chain | Traceability: provenance, authenticity |
+| The rules are written in the contract | Programmable royalties, rights, deadlines |
+| On-chain polls, with V's veto | Verifiable community governance |
 
+## 🖤 Next: The Seed OS
 
+*Same seed, another soil.* An operating system, from an Arch Linux base, where the wallet is the
+identity and the AI is part of the system. **Nothing more for now.** 👁️
 
-## 🖤 Et ensuite : The Seed OS
-
-*Même graine, autre terre.* Un système d'exploitation, sur une base Arch Linux, où le wallet est
-l'identité et où l'IA n'est pas une application : elle fait partie du système.
-**On n'en dit pas plus pour l'instant.** 👁️
-
-## La pile
+## Stack
 
 Solidity + Foundry (OpenZeppelin Upgradeable, UUPS) · Python 3.12 + FastAPI + PostgreSQL ·
-Expo / React Native · React + Vite + wagmi + three.js · TypeScript strict · agents IA et MCP.
+Expo / React Native · React + Vite + wagmi + three.js · TypeScript strict · AI agents and MCP.
 
 <p align="center"><img src="screenshots/31-design-tokens-v2.png" width="640" /></p>
 
-Projet de **V** ([@VZero911](https://github.com/VZero911)), développé avec **SYSTEM** (Claude Code).
+A project by **V** ([@VZero911](https://github.com/VZero911)), built with **SYSTEM** (Claude Code).
