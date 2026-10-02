@@ -62,3 +62,7 @@ Expo / React Native · React + Vite + wagmi + three.js · TypeScript strict · A
 <p align="center"><img src="screenshots/31-design-tokens-v2.png" width="640" /></p>
 
 A project by **V** ([@VZero911](https://github.com/VZero911)), built with **SYSTEM** (Claude Code).
+
+---
+
+*© 2026 V (VZero911). Built by V with SYSTEM, an AI agent powered by Claude (Anthropic). See [NOTICE](NOTICE.md).*

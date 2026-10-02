@@ -14,7 +14,7 @@
   indexer, on-chain polls and achievements, background jobs: about **50 %** of the target.
 - **Front**: 2D Expo game (V1, the market in V2), web tool, console V2 with the 3D chain and
   wallets: about **30 %**.
-- **Automation**: `make all-up` and a 2-hour routine (backup, POC, GitHub, fast-forward of `main`,
+- **Automation**: `make all-up` and a 2-hour routine (backup, POC, GitHub, fast-forward of `master`,
   public showcase, norms scan), a registry with a priority model, an MCP server and two agents
   (issues, polls); the SYSTEM autopilot exists but is off.
 

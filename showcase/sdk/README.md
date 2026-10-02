@@ -23,3 +23,7 @@ a package link because Expo's bundler does not import outside `game/`.
 - Typed API client and EIP-712 builders shared by the game and the web tool.
 - The data models of the 3D client (battle replay from the server's log), so 2D, web and 3D read
   the same structures.
+
+---
+
+*© 2026 V (VZero911). Built by V with SYSTEM, an AI agent powered by Claude (Anthropic). See [NOTICE](../NOTICE.md).*
