@@ -45,6 +45,12 @@ suite** : il faudra un audit et un cadre légal.
 
 
 
+## 🖤 Et ensuite : The Seed OS
+
+*Même graine, autre terre.* Un système d'exploitation, sur une base Arch Linux, où le wallet est
+l'identité et où l'IA n'est pas une application : elle fait partie du système.
+**On n'en dit pas plus pour l'instant.** 👁️
+
 ## La pile
 
 Solidity + Foundry (OpenZeppelin Upgradeable, UUPS) · Python 3.12 + FastAPI + PostgreSQL ·
