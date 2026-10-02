@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Seed — la chaîne en 3D</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #07060f; color: #f4f0ff; font-family: Inter, system-ui, sans-serif; overflow: hidden; }
+  #hud { position: fixed; left: 16px; top: 14px; max-width: min(520px, calc(100% - 32px)); }
+  h1 { margin: 0; font: 800 22px Cinzel, Georgia, serif; letter-spacing: 1px; color: #ffe08a; }
+  p { margin: 4px 0 0; color: #b9b2dc; font-size: 13px; }
+  #legend { position: fixed; left: 16px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: #b9b2dc; max-width: calc(100% - 32px); }
+  #legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+  #tip { position: fixed; right: 16px; top: 14px; font-size: 12px; color: #ffe08a; }
+</style>
+</head>
+<body>
+<div id="hud">
+  <h1>The Seed · la chaîne en 3D</h1>
+  <p>Blocs (cubes), transactions (éclats), contrats du jeu (étoiles) et wallets des joueurs (sphères). Démo avec des données d'exemple ; dans la console d'admin, c'est la vraie chaîne, en direct.</p>
+</div>
+<div id="tip">Glisse pour tourner · molette pour zoomer</div>
+<div id="legend"></div>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.180.0/build/three.module.js",
+               "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+
+const CONTRACTS = ['MintManager', 'Monster', 'POT', 'Marketplace', 'Polls', 'Achievements', 'Names', 'POC', 'ManaCoin', 'Crystal']
+const COLORS = [0x8f6cf0, 0x5fb8ff, 0xf2c14e, 0xff9d3d, 0x5fd38d, 0xef5d6c, 0x4fd6e0, 0xff9df5, 0x6fc3ff, 0xff7ad9]
+const WALLETS = ['V', 'SYSTEM', 'Neo', 'Lyra', 'Kaito', 'Mira', 'Orion', 'Sable']
+let seed = 7
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647)
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true })
+renderer.setPixelRatio(Math.min(2, devicePixelRatio))
+renderer.setSize(innerWidth, innerHeight)
+document.body.appendChild(renderer.domElement)
+const scene = new THREE.Scene()
+scene.background = new THREE.Color(0x07060f)
+scene.fog = new THREE.Fog(0x07060f, 50, 150)
+const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 500)
+camera.position.set(6, 20, 46)
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+controls.target.set(0, 4, 0)
+controls.autoRotate = true
+controls.autoRotateSpeed = 0.6
+scene.add(new THREE.AmbientLight(0xffffff, 0.45))
+const sun = new THREE.DirectionalLight(0xffffff, 1.1)
+sun.position.set(20, 40, 25)
+scene.add(sun)
+const grid = new THREE.GridHelper(160, 64, 0x2a2350, 0x15112c)
+scene.add(grid)
+
+const contractPos = CONTRACTS.map((name, i) => {
+  const a = Math.PI * (0.15 + (0.7 * i) / (CONTRACTS.length - 1))
+  const pos = new THREE.Vector3(Math.cos(a) * -34, 14 + (i % 3) * 3, -Math.sin(a) * 22 - 6)
+  const star = new THREE.Mesh(new THREE.IcosahedronGeometry(1.4, 1),
+    new THREE.MeshStandardMaterial({ color: COLORS[i], emissive: COLORS[i], emissiveIntensity: 0.8 }))
+  star.position.copy(pos)
+  scene.add(star)
+  const light = new THREE.PointLight(COLORS[i], 25, 14)
+  light.position.copy(pos)
+  scene.add(light)
+  return pos
+})
+const walletPos = WALLETS.map((name, i) => {
+  const a = Math.PI * (0.12 + (0.76 * i) / (WALLETS.length - 1))
+  const pos = new THREE.Vector3(Math.cos(a) * -30, 3 + (i % 2) * 2, Math.sin(a) * 14 + 10)
+  const gold = name === 'V'
+  const color = gold ? 0xf2c14e : 0x5fe0a8
+  const orb = new THREE.Mesh(new THREE.SphereGeometry(gold ? 1.3 : 0.8, 24, 16),
+    new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: gold ? 1.1 : 0.45 }))
+  orb.position.copy(pos)
+  scene.add(orb)
+  return pos
+})
+
+const links = [], walletLinks = []
+const N = 30, spacing = 2.4, offset = ((N - 1) * spacing) / 2
+let latest = null
+for (let i = 0; i < N; i++) {
+  const count = rnd() < 0.3 ? 0 : 1 + Math.floor(rnd() * 4)
+  const h = 0.6 + count * 0.6
+  const mesh = new THREE.Mesh(new THREE.BoxGeometry(1.6, h, 1.6), new THREE.MeshStandardMaterial({
+    color: count ? 0x3b2f6b : 0x1d1838, emissive: count ? 0x5a3fd0 : 0, emissiveIntensity: count ? 0.35 : 0, metalness: 0.3, roughness: 0.5 }))
+  const x = i * spacing - offset
+  mesh.position.set(x, h / 2, 0)
+  scene.add(mesh)
+  if (i === N - 1) latest = mesh
+  if (i > 0) links.push(x - spacing + 0.8, 0.3, 0, x - 0.8, 0.3, 0)
+  for (let j = 0; j < count; j++) {
+    const c = Math.floor(rnd() * CONTRACTS.length)
+    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(0.42),
+      new THREE.MeshStandardMaterial({ color: COLORS[c], emissive: COLORS[c], emissiveIntensity: 0.6 }))
+    const y = h + 0.9 + j
+    shard.position.set(x, y, 0)
+    scene.add(shard)
+    links.push(x, y, 0, contractPos[c].x, contractPos[c].y, contractPos[c].z)
+    const w = walletPos[Math.floor(rnd() * WALLETS.length)]
+    walletLinks.push(w.x, w.y, w.z, x, y, 0)
+  }
+}
+const seg = (pts, color, opacity) => new THREE.LineSegments(
+  new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(pts, 3)),
+  new THREE.LineBasicMaterial({ color, transparent: true, opacity }))
+scene.add(seg(links, 0x6f62b0, 0.35))
+scene.add(seg(walletLinks, 0x5fe0a8, 0.22))
+
+document.getElementById('legend').innerHTML =
+  CONTRACTS.map((n, i) => `<span><i style="background:#${COLORS[i].toString(16).padStart(6, '0')}"></i>${n}</span>`).join('') +
+  '<span><i style="background:#5fe0a8"></i>Wallet de joueur</span><span><i style="background:#f2c14e"></i>V</span>'
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize(innerWidth, innerHeight)
+})
+const clock = new THREE.Clock()
+renderer.setAnimationLoop(() => {
+  const t = clock.getElapsedTime()
+  latest.material.emissive.setHex(0xf2c14e)
+  latest.material.emissiveIntensity = 0.4 + 0.4 * Math.sin(t * 3)
+  controls.update()
+  renderer.render(scene, camera)
+})
+</script>
+</body>
+</html>

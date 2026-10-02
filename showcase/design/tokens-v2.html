@@ -1,0 +1,52 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Design tokens V2</title>
+<style>
+body{margin:0;background:#07060f;color:#f4f0ff;font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;padding:28px}
+h1{font:800 30px 'Cinzel', 'Trajan Pro', Georgia, serif;color:#ffe08a;letter-spacing:1px;margin:0 0 4px}
+h2{font:700 15px 'Cinzel', 'Trajan Pro', Georgia, serif;color:#f2c14e;letter-spacing:1px;margin:22px 0 10px;text-transform:uppercase}
+p{color:#b9b2dc;margin:0}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.sw{background:#171430;border:1px solid #352d63;border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:8px;font-size:12px}
+.sw i{width:26px;height:26px;border-radius:8px;border:1px solid #ffffff22}
+.sw code{color:#7f78a6}
+.cards{display:flex;flex-wrap:wrap;gap:14px}
+.card{width:118px;height:150px;border:1px solid;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:12px}
+.card span{color:#7f78a6}
+.orb{width:54px;height:54px;border-radius:50%}
+.panel{margin-top:22px;max-width:520px;background:rgba(34, 29, 68, 0.72);border:1px solid #b8913a;border-radius:16px;padding:18px;box-shadow:0 0 22px rgba(242,193,78,.35)}
+.price{display:flex;align-items:center;gap:6px;font-weight:800;color:#ffe08a;font-size:22px}
+.coin{width:18px;height:18px;border-radius:50%;background:#f2c14e;border:2px solid #a57a1c}
+.chip{display:inline-block;border:1px solid #f2c14e;color:#ffe08a;border-radius:999px;padding:4px 12px;font-size:12px;margin-right:6px}
+.chip.off{border-color:#352d63;color:#b9b2dc}
+.btn{display:inline-block;margin-top:12px;background:#8f6cf0;color:#fff;border-radius:10px;padding:10px 16px;font-weight:700}
+</style></head><body>
+<h1>The Seed — design tokens V2</h1>
+<p>« Jeu vidéo de magie sombre » · une seule source (sdk/src/tokens.ts) pour le jeu mobile et web, la console et le futur client 3D.
+Contraste du texte sur les panneaux : 15.9:1 (WCAG AA ≥ 4,5).</p>
+<section><h2>Surfaces</h2><div class="row"><div class="sw"><i style="background:#07060f"></i><b>void</b><code>#07060f</code></div><div class="sw"><i style="background:#0d0b1c"></i><b>bg</b><code>#0d0b1c</code></div><div class="sw"><i style="background:#171430"></i><b>panel</b><code>#171430</code></div><div class="sw"><i style="background:#221d44"></i><b>panelHigh</b><code>#221d44</code></div><div class="sw"><i style="background:#352d63"></i><b>border</b><code>#352d63</code></div><div class="sw"><i style="background:#b8913a"></i><b>borderGold</b><code>#b8913a</code></div></div></section>
+<section><h2>Marque</h2><div class="row"><div class="sw"><i style="background:#8f6cf0"></i><b>accent</b><code>#8f6cf0</code></div><div class="sw"><i style="background:#b49bff"></i><b>accentBright</b><code>#b49bff</code></div><div class="sw"><i style="background:#5a3fd0"></i><b>accentDeep</b><code>#5a3fd0</code></div><div class="sw"><i style="background:#f2c14e"></i><b>gold</b><code>#f2c14e</code></div><div class="sw"><i style="background:#ffe08a"></i><b>goldBright</b><code>#ffe08a</code></div><div class="sw"><i style="background:#a57a1c"></i><b>goldDeep</b><code>#a57a1c</code></div></div></section>
+<section><h2>Éléments</h2><div class="cards"><div class="card" style="background:linear-gradient(160deg, #3a1610, #171430);border-color:#ff6b3d;box-shadow:0 0 22px #ffb27a55">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #ffb27a, #ff6b3d)"></div>
+  <b style="color:#ffb27a">fire</b><span>#ff6b3d</span></div><div class="card" style="background:linear-gradient(160deg, #0e2238, #171430);border-color:#3fa9ff;box-shadow:0 0 22px #9ad4ff55">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #9ad4ff, #3fa9ff)"></div>
+  <b style="color:#9ad4ff">water</b><span>#3fa9ff</span></div><div class="card" style="background:linear-gradient(160deg, #0f2e22, #171430);border-color:#5fe0a8;box-shadow:0 0 22px #b3f5d855">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #b3f5d8, #5fe0a8)"></div>
+  <b style="color:#b3f5d8">wind</b><span>#5fe0a8</span></div><div class="card" style="background:linear-gradient(160deg, #2e1f10, #171430);border-color:#c98a4b;box-shadow:0 0 22px #ecc19155">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #ecc191, #c98a4b)"></div>
+  <b style="color:#ecc191">earth</b><span>#c98a4b</span></div><div class="card" style="background:linear-gradient(160deg, #33290d, #171430);border-color:#f2d24e;box-shadow:0 0 22px #fff09a55">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #fff09a, #f2d24e)"></div>
+  <b style="color:#fff09a">lightning</b><span>#f2d24e</span></div><div class="card" style="background:linear-gradient(160deg, #38331f, #171430);border-color:#fff3c4;box-shadow:0 0 22px #ffffff55">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #ffffff, #fff3c4)"></div>
+  <b style="color:#ffffff">light</b><span>#fff3c4</span></div><div class="card" style="background:linear-gradient(160deg, #22113a, #171430);border-color:#a15cff;box-shadow:0 0 22px #d2a8ff55">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #d2a8ff, #a15cff)"></div>
+  <b style="color:#d2a8ff">dark</b><span>#a15cff</span></div><div class="card" style="background:linear-gradient(160deg, #1d1b2b, #171430);border-color:#9a96b0;box-shadow:0 0 22px #d6d3e655">
+  <div class="orb" style="background:radial-gradient(circle at 35% 30%, #d6d3e6, #9a96b0)"></div>
+  <b style="color:#d6d3e6">unknown</b><span>#9a96b0</span></div></div></section>
+<section><h2>Rareté</h2><div class="row"><div class="sw"><i style="background:#9a96b0"></i><b>normal</b><code>#9a96b0</code></div><div class="sw"><i style="background:#5fd38d"></i><b>uncommon</b><code>#5fd38d</code></div><div class="sw"><i style="background:#3fa9ff"></i><b>rare</b><code>#3fa9ff</code></div><div class="sw"><i style="background:#b06cff"></i><b>hero</b><code>#b06cff</code></div><div class="sw"><i style="background:#ff9d3d"></i><b>legendary</b><code>#ff9d3d</code></div><div class="sw"><i style="background:#ff4d6d"></i><b>mythic</b><code>#ff4d6d</code></div></div></section>
+<section><h2>Monnaies</h2><div class="row"><div class="sw"><i style="background:#6fc3ff"></i><b>mana</b><code>#6fc3ff</code></div><div class="sw"><i style="background:#ff7ad9"></i><b>crystal</b><code>#ff7ad9</code></div><div class="sw"><i style="background:#5fd38d"></i><b>poc</b><code>#5fd38d</code></div><div class="sw"><i style="background:#f2c14e"></i><b>pot</b><code>#f2c14e</code></div><div class="sw"><i style="background:#ffd84e"></i><b>energy</b><code>#ffd84e</code></div></div></section>
+<div class="panel"><h2 style="margin-top:0">Aperçu avant de signer</h2>
+<span class="chip">Prix fixe</span><span class="chip off">Enchère</span>
+<p style="margin-top:12px">Prix</p><div class="price"><i class="coin"></i>40 <small style="color:#7f78a6;font-size:11px">POT</small></div>
+<p>Frais de la plateforme : 2 POT · le vendeur reçoit : 38 POT</p>
+<span class="btn">Signer et confirmer</span></div>
+</body></html>
