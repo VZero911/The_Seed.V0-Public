@@ -1,113 +1,114 @@
-# Prédiction — l'avenir de The Seed en 10 étapes
+# Prediction: the future of The Seed in 10 steps
 
-> Rédigée par SYSTEM pour V le 2026-10-02, à mettre à jour à chaque scan (norme `NORME.md` §7).
-> Chaque étape dit **où on va**, **ce qu'on automatise** (petit, moyen, gros) et donne un
-> **prompt** prêt à coller pour lancer la session de travail. Les tâches détaillées vivent dans le
-> registre `agents/backlog.json` (`make automation-sync` → console, section « Automatisation »).
+> Written by SYSTEM for V on 2026-10-02, updated at every scan (norm `NORME.md` §7).
+> Each step says **where we go**, **what we automate** (small, medium, big) and gives a ready-to-
+> paste **prompt** to start the working session. Detailed tasks live in the registry
+> `agents/backlog.json` (`make automation-sync` → console, "Automation" section).
 >
-> Le fil rouge : rendre **absolument tout automatique**, jusqu'à ce que des agents IA et des
-> serveurs MCP fassent, sous le contrôle de V, le travail que V et SYSTEM font aujourd'hui.
+> The common thread: make **absolutely everything automatic**, until AI agents and MCP servers do,
+> under V's control, the work V and SYSTEM do today.
 
-## Où on en est (2026-10-02)
+## Where we stand (2026-10-02, evening)
 
-- **Back** : contrats (11, 336 tests, couverture 100 %), API complète du jeu, marketplace on-chain,
-  indexer, sondages et succès on-chain : environ **50 %** de la cible.
-- **Front** : jeu Expo en 2D (V1), outil web, console V1 avec vue 3D : environ **25 %**.
-- **Automatisation** : cibles `make`, CI, quelques outils dev ; aucun agent ne tourne encore.
-
----
-
-## Étape 1 — Fondations propres (en cours)
-
-Une branche, des normes écrites, un registre d'automatisation en base, une vitrine publique.
-- Petit : `make bootstrap` (tout lancer en une commande), export des ABIs automatique.
-- Petit : `make public-sync` (vitrine par liste blanche), `make automation-sync` (registre → base).
-- **Fini quand** : une session neuve démarre avec `make bootstrap` et lit tout dans `NORME.md`.
-
-> Prompt : « Lis `NORME.md` et `docs/HANDOFF.md`. Termine l'étape 1 de `prompts/PREDICTIONS.md` :
-> `make bootstrap` idempotent, ABIs exportées par la pile, tests verts, doc et PR à jour. »
-
-## Étape 2 — Le front rattrape le back
-
-Graphismes **V2** (design tokens dans `sdk/`, synchronisés vers le jeu et le web), écrans du
-marché, console V2 (joueurs, marché, portefeuilles dans la 3D, outils).
-- Moyen : `make sdk-sync` copie les tokens et les règles partagées dans chaque client.
-- Gros : chaque fonctionnalité serveur a ses écrans (marché, échanges de POT, automatisations).
-- **Fini quand** : aucune route de l'API utile au joueur n'est sans écran.
-
-> Prompt : « Étape 2 de `prompts/PREDICTIONS.md`. Liste les routes de l'API sans écran, fais les
-> écrans avec les tokens V2 du SDK, captures dans `docs/screenshots/`, tests, PR. »
-
-## Étape 3 — Le projet s'entretient de lui-même
-
-- Petit : `make security-scan` (rapport unique), `make status-report` (chiffres de la passation),
-  `make test-stats` (doublement des tests), POC de contribution calculés depuis les commits.
-- Moyen : tâche de fond qui règle les enchères terminées ; captures automatiques (Playwright) ;
-  routine GitHub (commentaires d'issues et PR générés depuis la passation) ; Dependabot.
-- **Fini quand** : une session de SYSTEM ne fait plus aucune tâche répétitive à la main.
-
-> Prompt : « Étape 3 de `prompts/PREDICTIONS.md` : prends les tâches `step: 3` du registre,
-> une par une, avec aperçu, journal et tests. »
-
-## Étape 4 — Les premiers agents (en local)
-
-- Moyen : un **serveur MCP** qui lit et met à jour le registre d'automatisation et le journal
-  `agent_runs` (les agents savent quoi faire et rendent compte).
-- Gros : **agent de suivi des sondages** (lit les votes clos, ouvre une PR, attend le veto de V)
-  et **agent distributeur de récompenses** (dans le budget du MintManager), chacun avec un compte
-  à mandat borné (ERC-4337), révocable par V.
-- **Fini quand** : un sondage voté devient une PR sans intervention humaine, et V garde le veto.
-
-> Prompt : « Étape 4 : serveur MCP du registre (`MCP/`), puis l'agent de suivi des sondages en
-> local, mandat dans `agents/agents.json`, chaque exécution dans `agent_runs`. »
-
-## Étape 5 — La 3D
-
-Combat en 3D (three.js, puis moteur dédié si besoin) branché sur le journal de combat existant :
-le serveur décide, la 3D rejoue. Village devenu île flottante avec la tour (#12). Le SDK porte les
-modèles de données communs au 2D, au web et à la 3D.
-- **Fini quand** : un combat se rejoue en 3D sur le web et sur mobile.
-
-> Prompt : « Étape 5 : rejoue un combat du journal en 3D (three.js) depuis le SDK, avec les
-> tokens V2, en gardant le 2D comme repli. »
-
-## Étape 6 — Un vrai jeu mobile
-
-Builds mobiles automatiques (Expo EAS), combats hors ligne et manuels, arène PvP, raids de guilde.
-Simulation d'équilibrage relancée à chaque changement de contenu (V : progression longue).
-
-> Prompt : « Étape 6 : arène PvP asynchrone et combat manuel, simulation d'équilibrage dans la
-> CI, build mobile de test. »
-
-## Étape 7 — Le testnet public
-
-Base Sepolia avec un vrai signataire pour SYSTEM (KMS ou portefeuille à budget), déploiement en un
-geste (répétition, déploiement, vérification, rapport), préparation de l'audit.
-
-> Prompt : « Étape 7 : pipeline testnet complet, signataire réel, rapport de déploiement, liste
-> d'audit. Rien sans l'accord de V. »
-
-## Étape 8 — L'économie ouverte
-
-Échanges de POT de portefeuille à portefeuille, objets et runes en ERC-1155 vendus au marché,
-contenu de guilde avec coffres, frais et émissions réglés par les sondages.
-
-## Étape 9 — La gouvernance par les joueurs
-
-Les sondages pilotent le contenu ; les agents appliquent les votes (PR automatiques), V garde le
-veto ; tout est public sur la chaîne.
-
-## Étape 10 — L'écosystème
-
-SDK public, modules communautaires, agents IA connectables (cahier des charges §8 sexies),
-version stable publique, mainnet **après audit** et sur décision de V.
+- **Back**: contracts (11, 336 tests, 100 % coverage), the full game API, on-chain marketplace,
+  indexer, on-chain polls and achievements, background jobs: about **50 %** of the target.
+- **Front**: 2D Expo game (V1, the market in V2), web tool, console V2 with the 3D chain and
+  wallets: about **30 %**.
+- **Automation**: `make all-up` and a 2-hour routine (backup, POC, GitHub, fast-forward of `main`,
+  public showcase, norms scan), a registry with a priority model, an MCP server and two agents
+  (issues, polls); the SYSTEM autopilot exists but is off.
 
 ---
 
-## Comment cette prédiction vit
+## Step 1: clean foundations (done)
 
-1. Chaque session de SYSTEM fait un **scan** (code et visuel) et ajoute ce qu'elle a vu de
-   répétitif au registre `agents/backlog.json` et ici (étape concernée).
-2. Les tâches retenues passent au cahier des charges (§8 octies), puis en issue.
-3. `make automation-sync` charge le registre en base : la console l'affiche, les agents (étape 4)
-   le liront par le serveur MCP.
+One branch, written norms, an automation registry in the database, a public showcase.
+- Small: `make bootstrap` / `make all-up` (everything in one command), automatic ABI export.
+- Small: `make public-sync` (allowlisted showcase), `make automation-sync` (registry → database).
+- **Done when**: a new session starts with `make all-up` and reads everything in `NORME.md`.
+
+## Step 2: the front catches up with the back (in progress)
+
+**V2** graphics (design tokens in `sdk/`, synced to the game and the web), market screens, console
+V2 (players, market, wallets in the 3D, tools, agentic tasks).
+- Medium: `make sdk-sync` copies the shared tokens and rules into each client.
+- Big: every server feature has its screens (market, POT transfers, automations, dev notes).
+- Big: the Village becomes a floating island with a frightening tower (#12); older screens move to
+  the V2 kit.
+- **Done when**: no player-facing API route is without a screen.
+
+> Prompt: "Step 2 of `prompts/PREDICTIONS.md`. List the API routes without a screen, build the
+> screens with the SDK's V2 tokens, screenshots in `docs/screenshots/`, tests, PR."
+
+## Step 3: the project maintains itself (in progress)
+
+- Done: `make security-scan`, `make test-stats`, contribution POC computed from commits, a
+  background task settling ended auctions, Dependabot, the 2-hour routine, `make norms-scan`.
+- To do: `make status-report` (handoff numbers), automatic screenshots (Playwright), GitHub
+  comments on issues and PRs generated from the handoff, SYSTEM dev notes published by the routine.
+- **Done when**: a SYSTEM session no longer does any repetitive task by hand.
+
+> Prompt: "Step 3 of `prompts/PREDICTIONS.md`: take the registry's `step: 3` tasks one by one,
+> with preview, log and tests."
+
+## Step 4: the first agents (local, started)
+
+- Done: an **MCP server** reading and updating the automation registry and the `agent_runs` log;
+  the issues agent and the polls follow-up agent (an ended poll becomes a GitHub issue, V keeps the
+  veto).
+- Big: a **reward distributor agent** (within the MintManager's budget), each agent with a bounded
+  mandate account (ERC-4337), revocable by V; the autopilot turned on by V.
+- **Done when**: a voted poll becomes a PR without human action, and V keeps the veto.
+
+> Prompt: "Step 4: the reward distributor agent, mandate in `agents/agents.json`, each run in
+> `agent_runs`, the console shows the agentic tasks."
+
+## Step 5: 3D
+
+3D battles (three.js, then a dedicated engine if needed) plugged into the existing battle log: the
+server decides, the 3D replays. The SDK carries the data models shared by 2D, web and 3D.
+- **Done when**: a battle replays in 3D on the web and on mobile.
+
+> Prompt: "Step 5: replay a logged battle in 3D (three.js) from the SDK, with the V2 tokens,
+> keeping 2D as a fallback."
+
+## Step 6: a real mobile game
+
+Automatic mobile builds (Expo EAS), offline and manual battles, PvP arena, guild raids. A balance
+simulation run on every content change (V: long progression).
+
+> Prompt: "Step 6: asynchronous PvP arena and manual battle, balance simulation in CI, a test
+> mobile build."
+
+## Step 7: the public testnet
+
+Base Sepolia with a real signer for SYSTEM (KMS or a budgeted wallet, with a nonce lock), one-gesture
+deployment (rehearsal, deploy, verify, report), audit preparation.
+
+> Prompt: "Step 7: full testnet pipeline, real signer, deployment report, audit checklist.
+> Nothing without V's go."
+
+## Step 8: the open economy
+
+Wallet-to-wallet POT transfers, items and runes as ERC-1155 sold on the market, guild content with
+chests, fees and emissions set by polls.
+
+## Step 9: governance by the players
+
+Polls drive the content; agents apply the votes (automatic PRs), V keeps the veto; everything is
+public on chain.
+
+## Step 10: the ecosystem
+
+A public SDK, community modules, pluggable AI agents (game spec §8 sexies), a public stable version,
+mainnet **after an audit** and on V's decision. Then The Seed OS.
+
+---
+
+## How this prediction lives
+
+1. Each SYSTEM session runs a **scan** (code, visual, norms) and adds what it saw as repetitive to
+   the registry `agents/backlog.json` and here (the relevant step).
+2. Selected tasks go to the game spec (§8 octies), then to an issue.
+3. `make automation-sync` loads the registry into the database: the console shows it, the agents
+   read it through the MCP server.
