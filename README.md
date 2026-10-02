@@ -30,6 +30,21 @@ l'instant ; une version stable publique viendra plus tard.
   <img src="screenshots/13-monster.png" width="270" />
 </p>
 
+## 🌍 Dans la vraie vie : pourquoi tokeniser des actifs
+
+The Seed prouve en jeu ce que la blockchain apporte aux actifs réels. Ce n'est **pas pour tout de
+suite** : il faudra un audit et un cadre légal.
+
+| Dans le jeu | Dans la vraie vie |
+|---|---|
+| Un monstre NFT appartient à son wallet, personne ne peut le retirer ni le copier | Propriété vérifiable d'un titre, d'un billet, d'un certificat |
+| La marketplace garde l'actif et le paiement en séquestre | Échange sans intermédiaire de confiance, frais publics |
+| Chaque vente est historisée sur la chaîne | Traçabilité : provenance, authenticité |
+| Les règles sont écrites dans le contrat | Royalties, droits, échéances programmables |
+| Les sondages on-chain, avec le veto de V | Gouvernance vérifiable d'une communauté |
+
+
+
 ## La pile
 
 Solidity + Foundry (OpenZeppelin Upgradeable, UUPS) · Python 3.12 + FastAPI + PostgreSQL ·
