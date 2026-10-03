@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Seed roadmap in 10 steps — by VZero911</title>
+<meta name="description" content="Where The Seed, the Web3 + AI monster-collecting game by VZero911, is going: 10 steps from the local chain to the public game." />
+<link rel="canonical" href="https://vzero911.github.io/The_Seed.V0-Public/roadmap.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Seed roadmap in 10 steps — by VZero911" />
+<meta property="og:description" content="Where The Seed, the Web3 + AI monster-collecting game by VZero911, is going: 10 steps from the local chain to the public game." />
+<meta property="og:url" content="https://vzero911.github.io/The_Seed.V0-Public/roadmap.html" />
+<meta property="og:image" content="https://vzero911.github.io/The_Seed.V0-Public/screenshots/46-village-floating-island.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<style>:root{--bg:#120b1f;--fg:#efeaff;--accent:#9b5cff;--muted:#a9a0c4}
+@media (prefers-color-scheme:light){:root{--bg:#f6f3ff;--fg:#1c1230;--muted:#5d5278}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px}a{color:var(--accent)}
+img{max-width:100%}code,pre{overflow-x:auto}table{border-collapse:collapse;display:block;overflow-x:auto}
+td,th{border:1px solid var(--muted);padding:4px 8px}</style>
+</head>
+<body><main>
+<p><a href="index.html">← The Seed by VZero911</a></p>
+<h1>Prediction: the future of The Seed in 10 steps</h1>
+<blockquote>
+<p>Written by SYSTEM for V on 2026-10-02, updated at every scan (norm <code>NORME.md</code> §7).
+Each step says <strong>where we go</strong>, <strong>what we automate</strong> (small, medium, big) and gives a ready-to-
+paste <strong>prompt</strong> to start the working session. Detailed tasks live in the registry
+<code>agents/backlog.json</code> (<code>make automation-sync</code> → console, "Automation" section).</p>
+<p>The common thread: make <strong>absolutely everything automatic</strong>, until AI agents and MCP servers do,
+under V's control, the work V and SYSTEM do today.</p>
+</blockquote>
+<h2>Where we stand (2026-10-02, evening)</h2>
+<ul>
+<li><strong>Back</strong>: contracts (11, 336 tests, 100 % coverage), the full game API, on-chain marketplace,
+  indexer, on-chain polls and achievements, background jobs: about <strong>50 %</strong> of the target.</li>
+<li><strong>Front</strong>: 2D Expo game (V1, the market in V2), web tool, console V2 with the 3D chain and
+  wallets: about <strong>30 %</strong>.</li>
+<li><strong>Automation</strong>: <code>make all-up</code> and a 2-hour routine (backup, POC, GitHub, fast-forward of <code>master</code>,
+  public showcase, norms scan), a registry with a priority model, an MCP server and two agents
+  (issues, polls); the SYSTEM autopilot exists but is off.</li>
+</ul>
+<hr />
+<h2>Step 1: clean foundations (done)</h2>
+<p>One branch, written norms, an automation registry in the database, a public showcase.
+- Small: <code>make bootstrap</code> / <code>make all-up</code> (everything in one command), automatic ABI export.
+- Small: <code>make public-sync</code> (allowlisted showcase), <code>make automation-sync</code> (registry → database).
+- <strong>Done when</strong>: a new session starts with <code>make all-up</code> and reads everything in <code>NORME.md</code>.</p>
+<h2>Step 2: the front catches up with the back (in progress)</h2>
+<p><strong>V2</strong> graphics (design tokens in <code>sdk/</code>, synced to the game and the web), market screens, console
+V2 (players, market, wallets in the 3D, tools, agentic tasks).
+- Medium: <code>make sdk-sync</code> copies the shared tokens and rules into each client.
+- Big: every server feature has its screens (market, POT transfers, automations, dev notes).
+- Big: the Village becomes a floating island with a frightening tower (#12); older screens move to
+  the V2 kit.
+- <strong>Done when</strong>: no player-facing API route is without a screen.</p>
+<blockquote>
+<p>Prompt: "Step 2 of <code>prompts/PREDICTIONS.md</code>. List the API routes without a screen, build the
+screens with the SDK's V2 tokens, screenshots in <code>docs/screenshots/</code>, tests, PR."</p>
+</blockquote>
+<h2>Step 3: the project maintains itself (in progress)</h2>
+<ul>
+<li>Done: <code>make security-scan</code>, <code>make test-stats</code>, contribution POC computed from commits, a
+  background task settling ended auctions, Dependabot, the 2-hour routine, <code>make norms-scan</code>.</li>
+<li>To do: <code>make status-report</code> (handoff numbers), automatic screenshots (Playwright), GitHub
+  comments on issues and PRs generated from the handoff, SYSTEM dev notes published by the routine.</li>
+<li><strong>Done when</strong>: a SYSTEM session no longer does any repetitive task by hand.</li>
+</ul>
+<blockquote>
+<p>Prompt: "Step 3 of <code>prompts/PREDICTIONS.md</code>: take the registry's <code>step: 3</code> tasks one by one,
+with preview, log and tests."</p>
+</blockquote>
+<h2>Step 4: the first agents (local, started)</h2>
+<ul>
+<li>Done: an <strong>MCP server</strong> reading and updating the automation registry and the <code>agent_runs</code> log;
+  the issues agent and the polls follow-up agent (an ended poll becomes a GitHub issue, V keeps the
+  veto).</li>
+<li>Big: a <strong>reward distributor agent</strong> (within the MintManager's budget), each agent with a bounded
+  mandate account (ERC-4337), revocable by V; the autopilot turned on by V.</li>
+<li><strong>Done when</strong>: a voted poll becomes a PR without human action, and V keeps the veto.</li>
+</ul>
+<blockquote>
+<p>Prompt: "Step 4: the reward distributor agent, mandate in <code>agents/agents.json</code>, each run in
+<code>agent_runs</code>, the console shows the agentic tasks."</p>
+</blockquote>
+<h2>Step 5: 3D</h2>
+<p>3D battles (three.js, then a dedicated engine if needed) plugged into the existing battle log: the
+server decides, the 3D replays. The SDK carries the data models shared by 2D, web and 3D.
+- <strong>Done when</strong>: a battle replays in 3D on the web and on mobile.</p>
+<blockquote>
+<p>Prompt: "Step 5: replay a logged battle in 3D (three.js) from the SDK, with the V2 tokens,
+keeping 2D as a fallback."</p>
+</blockquote>
+<h2>Step 6: a real mobile game</h2>
+<p>Automatic mobile builds (Expo EAS), offline and manual battles, PvP arena, guild raids. A balance
+simulation run on every content change (V: long progression).</p>
+<blockquote>
+<p>Prompt: "Step 6: asynchronous PvP arena and manual battle, balance simulation in CI, a test
+mobile build."</p>
+</blockquote>
+<h2>Step 7: the public testnet</h2>
+<p>Base Sepolia with a real signer for SYSTEM (KMS or a budgeted wallet, with a nonce lock), one-gesture
+deployment (rehearsal, deploy, verify, report), audit preparation.</p>
+<blockquote>
+<p>Prompt: "Step 7: full testnet pipeline, real signer, deployment report, audit checklist.
+Nothing without V's go."</p>
+</blockquote>
+<h2>Step 8: the open economy</h2>
+<p>Wallet-to-wallet POT transfers, items and runes as ERC-1155 sold on the market, guild content with
+chests, fees and emissions set by polls.</p>
+<h2>Step 9: governance by the players</h2>
+<p>Polls drive the content; agents apply the votes (automatic PRs), V keeps the veto; everything is
+public on chain.</p>
+<h2>Step 10: the ecosystem</h2>
+<p>A public SDK, community modules, pluggable AI agents (game spec §8 sexies), a public stable version,
+mainnet <strong>after an audit</strong> and on V's decision. Then The Seed OS.</p>
+<hr />
+<h2>How this prediction lives</h2>
+<ol>
+<li>Each SYSTEM session runs a <strong>scan</strong> (code, visual, norms) and adds what it saw as repetitive to
+   the registry <code>agents/backlog.json</code> and here (the relevant step).</li>
+<li>Selected tasks go to the game spec (§8 octies), then to an issue.</li>
+<li><code>make automation-sync</code> loads the registry into the database: the console shows it, the agents
+   read it through the MCP server.</li>
+</ol>
+</main></body>
+</html>

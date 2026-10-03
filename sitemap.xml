@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/showcase/chain-3d/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/showcase/design/tokens-v2.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/looking-for-artists.html</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/roadmap.html</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/showcase/chain-3d/index.html</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://vzero911.github.io/The_Seed.V0-Public/showcase/design/tokens-v2.html</loc><lastmod>2026-10-03</lastmod></url>
 </urlset>

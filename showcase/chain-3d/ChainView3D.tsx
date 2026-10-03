@@ -260,10 +260,11 @@ export function ChainView3D({
     window.addEventListener('resize', onResize)
 
     let frame = 0
-    const clock = new THREE.Clock()
+    const timer = new THREE.Timer()
     const animate = () => {
       frame = requestAnimationFrame(animate)
-      const t = clock.getElapsedTime()
+      timer.update()
+      const t = timer.getElapsed()
       if (latest) {
         const mat = latest.material as THREE.MeshStandardMaterial
         mat.emissive.setHex(0xf2c14e)
