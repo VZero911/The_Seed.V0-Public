@@ -24,20 +24,27 @@ for now; a stable public version will come later. It is updated automatically ev
 | 🧩 Game UI components (React Native) | [`showcase/game-ui/`](showcase/game-ui/) |
 | 🔮 The roadmap in 10 steps | [`ROADMAP.md`](ROADMAP.md) |
 
-<p align="center">
-  <img src="screenshots/46-village-floating-island.png" width="880" />
-</p>
+<details open>
+<summary><b>🎮 Game screens</b></summary>
 
 <p align="center">
   <img src="screenshots/04-summon-reveal.png" width="270" />
   <img src="screenshots/50-battle-paused-v2.png" width="270" />
   <img src="screenshots/13-monster.png" width="270" />
 </p>
-
 <p align="center">
   <img src="screenshots/51-summon-altar-v2.png" width="430" />
   <img src="screenshots/49-inventory-v2.png" width="430" />
 </p>
+
+</details>
+
+<details>
+<summary><b>🏝️ The Village</b> (V2 art, to be replaced)</summary>
+
+<p align="center"><img src="screenshots/46-village-floating-island.png" width="880" /></p>
+
+</details>
 
 ## Where it stands
 
