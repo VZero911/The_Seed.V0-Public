@@ -25,10 +25,26 @@ for now; a stable public version will come later. It is updated automatically ev
 | 🔮 The roadmap in 10 steps | [`ROADMAP.md`](ROADMAP.md) |
 
 <p align="center">
+  <img src="screenshots/46-village-floating-island.png" width="880" />
+</p>
+
+<p align="center">
   <img src="screenshots/04-summon-reveal.png" width="270" />
-  <img src="screenshots/07-battle.png" width="270" />
+  <img src="screenshots/50-battle-paused-v2.png" width="270" />
   <img src="screenshots/13-monster.png" width="270" />
 </p>
+
+<p align="center">
+  <img src="screenshots/51-summon-altar-v2.png" width="430" />
+  <img src="screenshots/49-inventory-v2.png" width="430" />
+</p>
+
+## Where it stands
+
+Playable on a local test chain (nothing has real value): summons, battles, runes with automatic
+upgrade and grinding, the altar, a world boss, guilds, polls and achievements engraved on chain,
+and an on-chain marketplace (sales, auctions, offers). About 1,900 automated tests and 18 browser
+walks run before every change.
 
 ## 🎨 Looking for artists
 
