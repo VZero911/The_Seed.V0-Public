@@ -1,21 +1,23 @@
-/** Colours and spacing shared by every screen (dark fantasy palette). */
+/** Colours and spacing shared by every screen: the V2 design tokens (SDK) under the old key names. */
+import { brand, currency, stars, status, surface, text } from '../sdk/tokens'
+
 export const colors = {
-  bg: '#14121f',
-  panel: '#1f1c30',
-  panelHigh: '#2a2640',
-  border: '#3a3555',
-  text: '#f1edff',
-  muted: '#a49fc0',
-  accent: '#8f6cf0',
-  accentText: '#ffffff',
-  gold: '#f2c14e',
-  awakened: '#5fb8ff',
-  mana: '#6fc3ff',
-  danger: '#ef5d6c',
-  success: '#5fd38d',
-  hpHigh: '#5fd38d',
-  hpMid: '#f2c14e',
-  hpLow: '#ef5d6c',
+  bg: surface.bg,
+  panel: surface.panel,
+  panelHigh: surface.panelHigh,
+  border: surface.border,
+  text: text.primary,
+  muted: text.secondary,
+  accent: brand.accent,
+  accentText: text.onAccent,
+  gold: brand.gold,
+  awakened: stars.awakened,
+  mana: currency.mana,
+  danger: status.danger,
+  success: status.success,
+  hpHigh: status.success,
+  hpMid: status.warning,
+  hpLow: status.danger,
   devBanner: '#7a3b00',
 } as const
 

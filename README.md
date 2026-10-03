@@ -30,6 +30,12 @@ for now; a stable public version will come later. It is updated automatically ev
   <img src="screenshots/13-monster.png" width="270" />
 </p>
 
+## 🎨 Looking for artists
+
+3D artists (monsters, the floating-island Village and its tower), 2D artists and illustrators
+(monster art, icons, banners) and UI artists. Sound and music: later. Credit and contribution
+points (POC) are on the table. Write to vzero911@gmail.com or on Discord (**vzero911**).
+
 ## 🏆 The Seed Top Contributor
 
 The ranking of the people who build The Seed, by **POC** (Point of Contribution: earned, never
