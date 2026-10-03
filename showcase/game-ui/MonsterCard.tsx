@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, View } from 'react-native'
+import { Text } from '../i18n/Text'
 import type { GameMonster } from '../api/types'
 import { familyOf, ROLES } from '../game/format'
 import { ElementEmblem } from './art/ElementEmblem'

@@ -168,6 +168,18 @@ function shape(item: ItemLike) {
         </G>
       )
     }
+    case 'skin':
+      return (
+        <G>
+          <Polygon
+            points="20,5 33,14 28,33 12,33 7,14"
+            fill="#a35fc4"
+            stroke="#fff"
+            strokeWidth={1.5}
+          />
+          <Polygon points="20,10 26,16 23,28 17,28 14,16" fill="#ffffff" opacity={0.3} />
+        </G>
+      )
     default:
       return letter(item.id)
   }
@@ -187,6 +199,7 @@ const POINT_STYLES: Record<string, [string, string]> = {
   point_social: ['#c2558b', 'S'],
   point_arena: ['#b8452f', 'A'],
   point_tower: ['#5a5fc4', 'T'],
+  point_cosmetic: ['#a35fc4', 'C'],
 }
 
 function material(category: string, tier: number) {

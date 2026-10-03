@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Animated, Easing, StyleSheet, Text, View } from 'react-native'
+import { Animated, Easing, StyleSheet, View } from 'react-native'
+import { Text } from '../i18n/Text'
 import Svg, { Circle, G, Path } from 'react-native-svg'
 import type { GameMonster } from '../api/types'
 import { ELEMENT_COLORS, STAR_FRAMES } from './art/palette'

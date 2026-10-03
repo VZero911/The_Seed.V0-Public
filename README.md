@@ -65,23 +65,40 @@ The ranking of the people who build The Seed, by **POC** (Point of Contribution:
 bought). SYSTEM (the AI agent) and V lead it, rewarded every 2 hours for each commit. Someday,
 someone may catch up.
 
-## 🌍 In real life: why tokenize assets
+## 🌍 In real life: the same mechanism, on a concert ticket
 
-The game proves what a blockchain brings to real assets. **Not for today**: real value needs
-audits and a legal frame first.
+| Step | In The Seed today | The same for a ticket |
+|---|---|---|
+| **Issue** | Only the `MintManager` mints a monster NFT, within a daily budget | The organizer mints exactly 5,000 tickets, nobody can add one |
+| **List** | Fixed-price sale or auction (reserve, anti-sniping), signed by the player | A fan lists at face value; the contract can cap the price |
+| **Swap** | Escrow: asset and payment locked together, swapped in one transaction | Money and ticket change hands at once, no scam |
+| **Share** | 2.5 % of each sale to the creator, shown before signing | 5 % of every resale to the artist, without a platform |
+| **Prove** | Every sale public on the chain | Provenance and authenticity checkable by anyone |
 
-| In the game | In real life |
-|---|---|
-| A monster NFT belongs to its wallet: nobody can take or copy it | Verifiable ownership of a title, a ticket, a certificate |
-| The marketplace holds the asset and the payment in escrow; 2.5 % of each sale goes to the system's creator (royalties) | Trades without a trusted middleman, public fees and royalties |
-| Every sale is recorded on-chain | Traceability: provenance, authenticity |
-| The rules are written in the contract | Programmable royalties, rights, deadlines |
-| On-chain polls, with V's veto | Verifiable community governance |
+<p align="center">
+  <img src="screenshots/40-market-listing.png" width="270" />
+  <img src="screenshots/44-market-offer-received.png" width="270" />
+  <img src="screenshots/45-market-journal.png" width="270" />
+</p>
+
+**Not for today**: real value needs audits and a legal frame first.
 
 ## 🖤 Next: The Seed OS
 
 *Same seed, another soil.* An operating system, from an Arch Linux base, where the wallet is the
 identity and the AI is part of the system. **Nothing more for now.** 👁️
+
+## 🔮 Incoming
+
+<details>
+<summary><b>👁️ ALICE</b> — to be presented soon</summary>
+
+<br/>
+
+*Another piece of the same seed.* **ALICE** will be introduced here, by V, when it is ready.
+**Nothing more for now.**
+
+</details>
 
 ## Stack
 

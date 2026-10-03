@@ -28,6 +28,12 @@ export type IconName =
   | 'hammer'
   | 'medal'
   | 'shield'
+  | 'wings'
+  | 'star'
+  | 'crown'
+  | 'flame'
+  | 'calendar'
+  | 'lock'
 
 /** Line icons of the game (24x24), one colour. */
 export function Icon({
@@ -166,6 +172,37 @@ export function Icon({
           <Path d="M8 3l2.5 6M16 3l-2.5 6" {...p} />
           <Circle cx={12} cy={15} r={6} {...p} />
           <Path d="M12 12l1 2h2l-1.5 1.5.5 2-2-1-2 1 .5-2L9 14h2z" {...f} />
+        </>
+      ) : name === 'star' ? (
+        <Path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" {...p} />
+      ) : name === 'crown' ? (
+        <>
+          <Path d="M3 18l2-10 5 5 2-7 2 7 5-5 2 10z" {...p} />
+          <Path d="M4 21h16" {...p} />
+        </>
+      ) : name === 'flame' ? (
+        <Path
+          d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.5 1 2 2 2-1-3-.5-5 1-8z"
+          {...p}
+        />
+      ) : name === 'calendar' ? (
+        <>
+          <Rect x="4" y="6" width="16" height="14" rx="2" {...p} />
+          <Path d="M4 11h16M8 3v4M16 3v4" {...p} />
+          <Path d="M9 15l2 2 4-4" {...p} />
+        </>
+      ) : name === 'lock' ? (
+        <>
+          <Rect x="5" y="11" width="14" height="9" rx="2" {...p} />
+          <Path d="M8 11V8a4 4 0 0 1 8 0v3" {...p} />
+        </>
+      ) : name === 'wings' ? (
+        <>
+          <Path
+            d="M12 20c-1-4-1-9 0-15M12 5C9 3 5 3 2 5c1 5 4 9 10 11M12 5c3-2 7-2 10 0-1 5-4 9-10 11"
+            {...p}
+          />
+          <Path d="M7 9c1.5.5 3 1.5 4 3M17 9c-1.5.5-3 1.5-4 3" {...p} />
         </>
       ) : name === 'shield' ? (
         <>

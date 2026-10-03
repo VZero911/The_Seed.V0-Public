@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, View } from 'react-native'
+import { Text } from '../i18n/Text'
 import type { Rune } from '../api/types'
 import { RARITY, statValue } from '../game/runes'
 import { colors, radius, space } from './theme'
